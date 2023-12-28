@@ -11,7 +11,7 @@ import java.time.LocalTime;
 @Value
 public class HorarioDto implements Serializable {
     Integer id;
-    OperatividadDto idOperatividad;
+    OperatividadDto operatividad;
     LocalTime apertura;
     LocalTime cierre;
 }

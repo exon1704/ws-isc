@@ -1,22 +1,25 @@
-package com.nova.dto;
+package com.nova.dto.folio;
 
-import com.nova.model.Folio;
+import com.nova.dto.AreaDto;
+import com.nova.dto.EstadoReporteDto;
+import com.nova.dto.UnidadDto;
 import lombok.Value;
-
 import java.io.Serializable;
 import java.time.LocalDateTime;
 
 /**
- * DTO for {@link Folio}
+ * DTO for {@link com.nova.model.Folio}
  */
 @Value
-public class FolioDto implements Serializable {
+public class FolioRegistroDTO implements Serializable {
     Integer id;
     UnidadDto unidad;
-    ReporteDto1 reporte;
+    FolioDto.ReporteDto1 reporte;
     EstadoReporteDto estado;
     String folio;
     LocalDateTime fecha;
+    String nota;
+    String agente;
 
     /**
      * DTO for {@link com.nova.model.Reporte}

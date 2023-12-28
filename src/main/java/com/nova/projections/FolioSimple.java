@@ -7,7 +7,7 @@ import java.time.LocalDateTime;
 /**
  * Projection for {@link Folio}
  */
-public interface FolioInfo {
+public interface FolioSimple {
     Integer getId();
 
     String getFolio();

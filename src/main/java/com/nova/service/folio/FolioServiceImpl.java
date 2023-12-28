@@ -1,7 +1,8 @@
 package com.nova.service.folio;
 
 import com.nova.model.Folio;
-import com.nova.projections.FolioInfo;
+import com.nova.projections.FolioDetalles;
+import com.nova.projections.FolioSimple;
 import com.nova.repository.FolioRepository;
 import com.nova.toolkit.FiltroFolio;
 import com.nova.toolkit.FolioSpecification;
@@ -23,8 +24,14 @@ public class FolioServiceImpl implements FolioService {
 
     @Override
     @Transactional(readOnly = true)
-    public Optional<FolioInfo> obtenerPorFolio(String folio) {
-        return repository.findByFolio(folio);
+    public Optional<FolioSimple> obtenerPorFolio(String folio) {
+        return repository.findByFolio(folio, FolioSimple.class);
+    }
+
+    @Override
+    @Transactional(readOnly = true)
+    public Optional<FolioDetalles> obtenerDetalles(String folio) {
+        return repository.findByFolio(folio, FolioDetalles.class);
     }
 
     @Override

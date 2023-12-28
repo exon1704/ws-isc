@@ -1,7 +1,6 @@
 package com.nova.repository;
 
 import com.nova.model.Folio;
-import com.nova.projections.FolioInfo;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.domain.Specification;
@@ -16,7 +15,8 @@ import java.util.Optional;
 @Repository
 public interface FolioRepository extends JpaRepository<Folio, Long>, JpaSpecificationExecutor<Folio> {
     @EntityGraph(attributePaths = {"unidad", "reporte.area", "estado"})
-    Optional<FolioInfo> findByFolio(String folio);
+    <T>
+    Optional<T> findByFolio(String folio, Class<T> type);
 
     @Query("select (count(f) > 0) from Folio f where upper(f.folio) = upper(?1)")
     boolean existsByFolioIgnoreCase(String folio);

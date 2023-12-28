@@ -18,7 +18,7 @@ public class Horario {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_operatividad")
-    private Operatividad idOperatividad;
+    private Operatividad operatividad;
 
     @Column(name = "id_unidad")
     private Integer idUnidad;

@@ -36,7 +36,7 @@ public class UnidadServiceImpl implements UnidadService {
 
     @Override
     public Collection<Horario> obtenerHorarios(Integer idUnidad) {
-        return horarioRepository.findByIdUnidadOrderByIdOperatividad_IdAsc(idUnidad);
+        return horarioRepository.findByIdUnidadOrderByOperatividad_IdAsc(idUnidad);
     }
 
 }
